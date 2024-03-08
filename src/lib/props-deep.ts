@@ -41,7 +41,7 @@ interface PropsDeepTraverseResult<T extends object> {
  * } ;
  * await Promise.props(obj) ;
  * ```
- * This will rejected with reason "rejected" and throw an error with this message
+ * This will get a promise rejected with reason "rejected"
  *
  * @example comprehensive demo for props() function
  * ```js

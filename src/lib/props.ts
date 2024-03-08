@@ -33,7 +33,7 @@ const propertyIsEnumerable = Object.prototype.propertyIsEnumerable ;
  * } ;
  * await Promise.props(obj) ;
  * ```
- * This will throw an Error with the reject reason "rejected" as error message
+ * This will get a promise rejected with reason "rejected"
  *
  * @example A won't rejected example
  * ```js

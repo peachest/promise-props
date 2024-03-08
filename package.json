@@ -1,6 +1,6 @@
 {
     "name": "@pearden/promise-props",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "repository": "git@github.com:peachest/promise-props.git",
     "author": "houyuxi <1938913473@qq.com>",
     "type": "module",
