@@ -46,7 +46,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-artifact
-      - name: unTar storybook docs
+      - name: unTar build dist
         run: tar -xzvf ./${BUILD_ARTIFACT}
       - run: npm publish
         env:
