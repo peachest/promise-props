@@ -1,7 +1,7 @@
 name: Github-pages-build-deployment
 on:
-  release:
-    types: [ published ]
+  push:
+    branches: ["main"]
   # 允许手动触发
   workflow_dispatch:
 
@@ -43,7 +43,7 @@ jobs:
       - name: Tar docs
         run: tar -czvf ${DOCS_ARTIFACT} ${DOCS_DIR}
       - name: Upload docs artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: docs-artifact
           path: ./${{ env.DOCS_ARTIFACT }}
@@ -55,19 +55,19 @@ jobs:
     needs: [ "build" ]
     steps:
       - name: Download docs artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: docs-artifact
       - name: unTar docs
         run: tar -xzvf ./${DOCS_ARTIFACT}
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ${{ env.DOCS_DIR }}
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
 
   # 部署
   deploy:
@@ -79,4 +79,4 @@ jobs:
     steps:
       - name: Deploy to Github Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
